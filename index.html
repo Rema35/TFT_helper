@@ -2,10 +2,31 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>TFT HELPER</title>
+    <title>My Electron App</title>
   </head>
   <body>
-    <h1>Je suis trop intelligent</h1>
-    <p>Cette application est majesteusement majestueuse</p>
+    <h1>My Electron App</h1>
+    <button id="open-overlay-button">Open Overlay</button>
+
+    <div id="overlay">
+      <h2>Overlay</h2>
+      <p>This is the content of the overlay.</p>
+      <button id="close-overlay-button">Close Overlay</button>
+    </div>
+
+    <script>
+      const { remote } = require('electron');
+      const button = document.querySelector('#open-overlay-button');
+      const overlay = document.querySelector('#overlay');
+      const closeButton = document.querySelector('#close-overlay-button');
+
+      button.addEventListener('click', () => {
+        overlay.style.display = 'block';
+        console.log("test");
+      });
+
+      closeButton.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+    </script>
   </body>
-</html>
